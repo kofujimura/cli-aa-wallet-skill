@@ -276,14 +276,16 @@ async function cmdLogin() {
             `token exchange failed: ${JSON.stringify(tokens)}`,
           );
 
-        res.writeHead(200, { "Content-Type": "text/html" });
+        res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
         res.end(
-          "<h2>✓ Login complete.</h2><p>You can close this tab and return to the terminal.</p>",
+          '<!doctype html><meta charset="utf-8">' +
+            "<h2>✓ Login complete.</h2><p>You can close this tab and return to the terminal.</p>",
         );
         server.close();
         resolve(tokens);
       } catch (e) {
-        res.writeHead(500).end(String(e));
+        res.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
+        res.end(String(e));
         server.close();
         reject(e);
       }
