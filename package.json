@@ -1,0 +1,22 @@
+{
+  "name": "cli-aa-wallet-skill",
+  "version": "0.1.0",
+  "description": "A minimal CLI smart-account (ERC-4337 / Account Abstraction) wallet skill. Google login via Web3Auth, MetaMask Smart Account on Sepolia, gasless sends via Pimlico.",
+  "type": "module",
+  "bin": {
+    "aa-wallet": "./wallet.js"
+  },
+  "scripts": {
+    "wallet": "node wallet.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@metamask/delegation-toolkit": "^0.13.0",
+    "@web3auth/node-sdk": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "permissionless": "^0.3.6",
+    "viem": "^2.52.2"
+  }
+}
